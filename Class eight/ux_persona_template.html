@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UX Persona Template</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+        }
+
+        .persona-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 350px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="persona-card">
+        <h2 id="persona-name"></h2>
+        <p><strong>Age:</strong> <span id="persona-age"></span></p>
+        <p><strong>Skills:</strong></p>
+        <ul id="persona-skills"></ul>
+    </div>
+
+    <script>
+        // 🔹 Step 1: Define a UX Persona Object
+        let userPersona = {
+            name: "[Your Persona's Name]",  // TODO: Replace with a name
+            age: "[Your Age]",  // TODO: Replace with a number
+            skills: ["Skill 1", "Skill 2", "Skill 3"],  // TODO: Add 3 skills
+            
+            // 🔹 Step 2: Create a method to introduce the persona
+            introduce: function() {
+                // TODO: Return a string like "Hi, I'm [name] and I specialize in [skills]"
+                return "";
+            }
+        };
+
+        // 🔹 Step 3: Display Persona Details
+        document.getElementById("persona-name").innerText = userPersona.name;
+        document.getElementById("persona-age").innerText = userPersona.age;
+
+        let skillList = document.getElementById("persona-skills");
+
+        // 🔹 Step 4: Write a Loop to Display Skills
+        // TODO: Write a for loop to go through userPersona.skills and add each skill to the list.
+        // Hint: Create an <li> element for each skill and append it to skillList.
+
+        /* Example structure to help.
+        for (let i = 0; i < ???; i++) {
+            let listItem = document.createElement("li");
+            listItem.textContent = `- ???`; // What should go here?
+            skillList.appendChild(listItem);
+        }
+        */
+
+        // 🔹 Step 5: Console.log the persona's introduction
+        console.log(userPersona.introduce());
+    </script>
+
+</body>
+</html>

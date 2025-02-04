@@ -1,0 +1,139 @@
+<!-- This is the HTML document structure declaration -->
+<!DOCTYPE html>
+<!-- Opens the HTML document with language set to English -->
+<html lang="en">
+<head>
+    <!-- Defines character encoding for the document -->
+    <meta charset="UTF-8">
+    <!-- Ensures responsive behavior on different screen sizes -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Sets the title of the web page in the browser tab -->
+    <title>UX Persona - Filled Example</title>
+
+    <style>
+        /* Sets font family to Arial and centers content vertically and horizontally */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            /* seperate 2 cards with 10 pixels */
+            gap: 10px;
+            align-items: center;
+            /* Set height to 100% viewport height */
+            height: 100vh;
+            /* Set background color as white */
+            background-color: #f5f5f5;
+        }
+
+        /* Styles the persona card with padding, rounded corners, and a shadow effect */
+        .persona-card {
+            /* Set background color as white */
+            background: white;
+            padding: 20px;
+            /* Set a blueviolet solid border with 2pixels width */
+            border-style: solid;
+            border-color: blueviolet;
+            border-width: 2px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            /* Align text to the center */
+            text-align: center;
+            /* Set the width as 300 pixels */
+            width: 300px;
+        }
+
+        /* Removes bullet points from the list */
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- This div contains the persona card that displays user information -->
+    <div class="persona-card">
+        <!-- Displays the persona name dynamically using JavaScript -->
+        <h2 id="persona-name"> hi </h2>
+        <!-- Displays the persona's age dynamically -->
+        <p><strong>Age:</strong> <span id="persona-age">[Age]</span></p>
+        <!-- Displays a list of skills -->
+        <p><strong>Skills:</strong></p>
+        <ul id="persona-skills">
+            <!-- JavaScript will insert skills here -->
+        </ul>
+    </div>
+    <!-- This div contains the second persona card that displays user information -->
+    <div class="persona-card">
+        <!-- Displays the persona name dynamically using JavaScript -->
+        <h2 id="persona2-name"> hi </h2>
+        <!-- Displays the persona's age dynamically -->
+        <p><strong>Age:</strong> <span id="persona2-age">[Age]</span></p>
+        <!-- Displays a list of skills -->
+        <p><strong>Skills:</strong></p>
+        <ul id="persona2-skills">
+            <!-- JavaScript will insert skills here -->
+        </ul>
+    </div>
+
+    <!-- Contain Javascript code that constructs persona -->
+    <script>
+        // Creates an object representing a Freelance Illustrator persona
+        let userPersona = {
+            name: "Mike, Freelance Illustrator",
+            age: 25,
+            skills: ["Art exhibitions", "fashion trends", "digital design tools"],
+
+            // Function to introduce the persona with their name and skills
+            introduce: function() {
+                return `I'm ${this.name} and I specialize in ${this.skills.join(", ")}.`;
+            }
+        };
+
+        // Creates another persona object for comparison
+        let userPersona2 = {
+            name: "Peter, the Brand Designer",
+            age: 38,
+            skills: ["creative workshops", "Branding trends", "digital design tools"],
+
+            // Function to introduce the second persona
+            introduce: function() {
+                return `I'm ${this.name} and I specialize in ${this.skills.join(", ")}.`;
+            }
+        };
+
+        // Updates the HTML content to display the first persona’s details
+        document.getElementById("persona-name").innerText = userPersona.name;
+        document.getElementById("persona-age").innerText = userPersona.age;
+
+        // Updates the HTML content to display the second persona’s details
+        document.getElementById("persona2-name").innerText = userPersona2.name;
+        document.getElementById("persona2-age").innerText = userPersona2.age;
+
+        // Selects the unordered list element for the first persona's skills
+        let skillList = document.getElementById("persona-skills");
+
+        // Loops through the first persona's skills and adds them as list items
+        for (let i = 0; i < userPersona.skills.length; i++) {
+            let listItem = document.createElement("li"); // Creates a new list item
+            listItem.textContent = `- ${userPersona.skills[i]}`; // Sets the text content
+            skillList.appendChild(listItem); // Appends the list item to the skills list
+        }
+
+        // Selects the unordered list element for the second persona's skills
+        let skillList2 = document.getElementById("persona2-skills");
+
+        // Loops through the second persona's skills and adds them as list items
+        for (let i = 0; i < userPersona2.skills.length; i++) {
+            let listItem = document.createElement("li"); // Creates a new list item
+            listItem.textContent = `- ${userPersona2.skills[i]}`; // Sets the text content
+            skillList2.appendChild(listItem); // Appends the list item to the skills list
+        }
+
+        // Logs the introduction of both personas to the console
+        console.log(userPersona.introduce());
+        console.log(userPersona2.introduce());
+    </script>
+
+</body>
+</html>
